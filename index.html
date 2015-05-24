@@ -1,60 +1,73 @@
 <!DOCTYPE html>
 <html lang="en-US">
-<html>
+
 <head>
-    <title>Vehicle Expense Tracker</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" media="all" href="style.css">
+<title>Vehicle Expense Tracker</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 </head>
 <body>
-    
-<header>
-  <img id="sitelogo" src="images/carlogo.jpg"><br>
-    Vehicle Expense Tracker
+
+<div class="container-fluid"> 
+   <div class="row">
+        <div class="col-sm-4"><h6></h6><a href="index.html"><img src="images/carlogo.jpg" alt="Vehicle Expense Tracker Home" width="80" height="30" border="0"></a></h6></div>
+        <div class="col-sm-4"><h6>Vehicle Expense Tracker</h6></div>
+        <div class="col-sm-4"><h6>a BP Factory App</h6></div>       
+    </div>
    
-</header>
-<nav>  Sign In 
-      <div id="sign-in">
-        <form method="post" action="index.html">
-            <p><input type="text" name="login" value="" placeholder="Username" required></p>
-            <p><input type="password" name="password" value="" placeholder="Password" required></p>
-            <p class="submit"><input type="submit" name="commit" value="Login"></p>              
-        </form>         
-      </div>
-      <div id="createaccount"><br>
-        <form action="newaccount.php">
-        <input type="submit" value="Create New Account">
-        </form>
-      </div>
-</nav>
-
-<section>
-  <h1>Managing your car expenses is a pain</h1><br>
-    <p>
-    Let us take the pain out with a detailed tracking of everthing you spend on your vehicle.
-    </p>
-    <ul>
-        <li>Gas</li>
-        <li>Oil</li>
-        <li>Repairs</li>
-        <li>Tires</li>
-    </ul>
-    <p>
-        Create an account and find out how much you're spending.
-    </p>
-  
-</section>
     
- 
- 
- 
- 
-
-
-
-<footer>
-  Email: Brad Parker parkerb@@onid.oregonstate.edu  Copyright &#64 2015 BP Designs
-</footer>
+    <div class="jumbotron">
+        <section>
+          <h3>Managing your car expenses is a pain</h3><br>
+            <p>
+            Let us take the pain out with a detailed tracking of everthing you spend on your vehicle.
+            </p>
+            <ul>
+                <li>Gas</li>
+                <li>Oil</li>
+                <li>Repairs</li>
+                <li>Tires</li>
+            </ul>
+            <p>
+                Create an account and find out how much you're spending.
+            </p>
+          
+        </section>
+    </div>
+   
+   
+   
+        <nav class="navbar navbar-default">  Sign In        
+            <form method="post" action="gateway.php">
+                <p><input id="logmyuser" type="text" name="login" value="" placeholder="Username" required></p>
+                <p><input id="logmypass" type="password" name="password" value="" placeholder="Password" required onchange=checklogpass()></p>
+                <p class="submit"><input type="submit" name="commit" value="Login"></p>
+                <div id="warning"></div>
+            </form>             
+            
+            <div id="createaccount"><br>
+              <form action="newaccount.php">
+              <input type="submit" value="Create New Account">
+              </form>
+            </div>          
+        </nav>
+      
+     
+     
+     
+     
+    
+    
+    <div class="panel panel-default">
+        <footer>
+          Email: Brad Parker parkerb@@onid.oregonstate.edu  <br> Copyright &#64 2015 BP Designs
+        <script type="text/javascript" src="pajax.js"></script>
+        </footer>
+    </div>
+</div>
 
 </body>
 </html>    
