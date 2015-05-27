@@ -4,57 +4,57 @@
 <head>
 <title>Vehicle Expense Tracker</title>
 <meta charset="UTF-8">
+<!-- BootStrap used for styling all pages -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-
 </head>
-<body>
 
-<div class="container-fluid"> 
-   <div class="row">
+<!-- Displays msg after reload -->
+<body onload=onchange=checklogpass()>
+
+<!-- Main Container Class -->
+<div class="container-fluid">
+<!-- Top Span -->
+    <div class="row">
         <div class="col-sm-4"><h6></h6><a href="index.html"><img src="images/carlogo.jpg" alt="Vehicle Expense Tracker Home" width="80" height="30" border="0"></a></h6></div>
         <div class="col-sm-4"><h6>Vehicle Expense Tracker</h6></div>
         <div class="col-sm-4"><h6>a BP Factory App</h6></div>       
     </div>
    
-    
+<!-- Initial Message -->    
     <div class="jumbotron">
         <section>
-          <h3>Managing your car expenses is a pain</h3><br>
+            <h3>Managing your car expenses is a pain</h3><br>
             <p>
             Let us take the pain out with a detailed tracking of everthing you spend on your vehicle.
             </p>
             <ul>
-                <li>Gas</li>
+                <li>Fuel</li>
                 <li>Oil</li>
                 <li>Repairs</li>
-                <li>Tires</li>
+                <li>Misc</li>
             </ul>
-            <p>
-                Create an account and find out how much you're spending.
-            </p>
-          
+            <p>Create an account and find out how much you're spending.</p>          
         </section>
     </div>
-   
-   
-   
-        <nav class="navbar navbar-default">  Sign In        
-            <form method="post" action="gateway.php">
-                <p><input id="logmyuser" type="text" name="login" value="" placeholder="Username" required></p>
-                <p><input id="logmypass" type="password" name="password" value="" placeholder="Password" required onchange=checklogpass()></p>
-                <p class="submit"><input type="submit" name="commit" value="Login"></p>
-                <div id="warning"></div>
-            </form>             
-            
-            <div id="createaccount"><br>
-              <form action="newaccount.php">
-              <input type="submit" value="Create New Account">
-              </form>
-            </div>          
-        </nav>
+
+<!-- Sign In --> 
+    <nav class="navbar navbar-default"><strong>Sign In to your Account</strong>       
+        <form method="post" action="gateway.php" id="firstlog" name="firstlog">
+            <p><input id="logmyuser" type="text" name="login" value="" placeholder="Username" required></p>
+            <p><input id="logmypass" type="password" name="password" value="" placeholder="Password" required onchange=checklogpass()></p>
+            <p class="submit"><input type="submit" name="commit"  value="Login"></p>
+            <div id="warning"></div>
+        </form>   <br>  <br>        
+        
+    <div id="createaccount"><strong>Create a New Account</strong><br>
+        <form action="newaccount.php">
+        <input type="submit" value="Create New Account">
+        </form>
+    </div>          
+    </nav>
       
      
      

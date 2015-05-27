@@ -37,7 +37,7 @@ else
         }        
         else        
         {           
-            echo "Sorry, UserName has been taken. Enter another.";
+            echo "<p style='color:red' >Sorry, UserName has been taken. Enter another.</p>";
           
         }       
         $conn->close();   

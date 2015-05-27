@@ -36,7 +36,8 @@ header('Content-Type: text/html');
                     //if username doesn't exit[no returned results]
                    if(!$row)
                         {
-                               echo "Incorrect Username or Password";      
+                               echo "<p style='color:red' >Incorrect Username or Password</p>";
+                              
                           
                         }        
                 }
