@@ -2,7 +2,6 @@
 
 
 
-
 function checkUsername()
 {
     var name=document.getElementById("loginuser").value;
@@ -169,15 +168,14 @@ function searchGas()
               
         var lat = document.getElementById("geoposition1a").value;
         var lon = document.getElementById("geoposition1b").value;
-        console.log(lat,lon);
+       
         var url = "http://api.mygasfeed.com/stations/radius/" + lat + "/" + lon + "/10/reg/price/ksgd4obbpm.json";
-        console.log(url);
+       
         
         httpRequest = new XMLHttpRequest();
         httpRequest.onreadystatechange = waiting;        
-        httpRequest.open('GET', url, true);
+        httpRequest.open('GET', url, true);        
         
-        //httpRequest.open('GET', "http://api.mygasfeed.com/stations/radius/" + lat + "/" + lon + "/5/reg/price/ksgd4obbpm.json", true);
         httpRequest.send(null);             
         
         
@@ -206,7 +204,8 @@ function searchGas()
             //clear old data
             tableTop.innerHTML = "";
 	        var tbl     = document.createElement("table");
-            tbl.border = "1";           
+            tbl.border = "1";
+            tbl.className="expensetable";
 	        var tblBody = document.createElement("tbody");
             
             var hrow = document.createElement("tr");
@@ -310,7 +309,7 @@ function searchGas()
 	    }
 
 
-function lookupGeoData() {            
+     function lookupGeoData() {            
             myGeoPositionGeoPicker({
                 startAddress     : 'White House, Washington',
                 returnFieldMap   : {
@@ -325,34 +324,7 @@ function lookupGeoData() {
 
 
 
-function deleteRecord()
-{  
-     
-     console.log("fuck me");
-     /* 
-    if (window.XMLHttpRequest)
-        {// code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp=new XMLHttpRequest();
-        }
-    else
-        {// code for IE6, IE5
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-        }
-    xmlhttp.onreadystatechange=function()
-        {
-           
-        if (xmlhttp.readyState==4 && xmlhttp.status==200)
-            {
-            document.getElementById("showRecentExp").innerHTML=xmlhttp.responseText;
-            }
-        }
-   
-    xmlhttp.open("GET","recentexpense.php",true);
-    xmlhttp.send();
-    */
 
-    
-}
 
 
 

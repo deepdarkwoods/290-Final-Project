@@ -1,9 +1,6 @@
 <?php
 session_start();
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-header('Content-Type: text/html');
 
 //assign a session variable to maintain state
 if(isset($_POST["login"]))
@@ -66,10 +63,10 @@ if(isset($_POST["vehicleadd"]) && is_numeric($_POST["year"]) && (strlen($_POST["
             $newYEAR = $_POST['year'];
             $newDESC = $_POST['description'];            
             
-            $servername = "localhost";
-            $username = "brad";
-            $password = "brad";
-            $dbname = "tracker";
+            $servername = "oniddb.cws.oregonstate.edu";
+            $username = "parkerb2-db";
+            $password = "RznqNou9jGnYkUSh";
+            $dbname = "parkerb2-db";
             
             $conn = new mysqli($servername, $username, $password, $dbname);        
             

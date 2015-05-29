@@ -9,10 +9,10 @@ header('Content-Type: text/html');
             
               
             
-            $servername = "localhost";
-            $username = "brad";
-            $password = "brad";
-            $dbname = "tracker";
+            $servername = "oniddb.cws.oregonstate.edu";
+            $username = "parkerb2-db";
+            $password = "RznqNou9jGnYkUSh";
+            $dbname = "parkerb2-db";
             
             $conn = new mysqli($servername, $username, $password, $dbname);        
                    

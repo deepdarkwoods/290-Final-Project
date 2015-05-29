@@ -1,7 +1,5 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-header('Content-Type: text/html');
+
 ?>
 
 <!DOCTYPE html>
@@ -52,12 +50,18 @@ header('Content-Type: text/html');
     //Add user to Database
     if(isset($_POST["newAccount"]))
         {
-            $servername = "localhost";
-            $username = "brad";
-            $password = "brad";
-            $dbname = "tracker";
+            $servername = "oniddb.cws.oregonstate.edu";
+            $username = "parkerb2-db";
+            $password = "RznqNou9jGnYkUSh";
+            $dbname = "parkerb2-db";
     
             $conn = new mysqli($servername, $username, $password, $dbname);
+            if($conn->connect_errno)
+                {
+                    echo "Failed to Connect to Server.Try Again. ";
+                    return;
+                }
+                
             $q = $_POST['login'];
                                 
             $stmt = $conn->prepare("SELECT * FROM users WHERE username =?");
@@ -82,10 +86,10 @@ header('Content-Type: text/html');
                     $newUSERNAME = $_POST['login'];
                     $newPASSWORD = $_POST['password'];
                     
-                    $servername = "localhost";
-                    $username = "brad";
-                    $password = "brad";
-                    $dbname = "tracker";
+                    $servername = "oniddb.cws.oregonstate.edu";
+                    $username = "parkerb2-db";
+                    $password = "RznqNou9jGnYkUSh";
+                    $dbname = "parkerb2-db";
                     
                     $conn = new mysqli($servername, $username, $password, $dbname);        
                     
@@ -95,12 +99,16 @@ header('Content-Type: text/html');
                 if (!$conn)
                     {
                         die('Could not connect: ' . mysqli_error($conn));
+                        return;
                     }
                 else
-                    {        
-                        $stmt = $conn->prepare("INSERT INTO users (username,password) VALUES (?,?)");
+                    {                        
+                        $stmt = $conn->prepare("INSERT INTO users (username,password) VALUES (?,?)");                        
                         $stmt->bind_param("ss",$newUSERNAME,$newPASSWORD);
                         $stmt->execute();
+                        
+                        
+                        echo "<br>";                        
                         
                         //submit form and give user a link to setup their page
                         echo  "<form  method='post' action='profile.php'>";

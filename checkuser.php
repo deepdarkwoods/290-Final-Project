@@ -1,18 +1,13 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-header('Content-Type: text/html');
-
-
 
 //checks the database TABLE 'users' to see if username exits
 //general usage take from online sournce: W3Schools
 $q = $_GET['username'];
 
-$servername = "localhost";
-$username = "brad";
-$password = "brad";
-$dbname = "tracker";
+$servername = "oniddb.cws.oregonstate.edu";
+$username = "parkerb2-db";
+$password = "RznqNou9jGnYkUSh";
+$dbname = "parkerb2-db";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 

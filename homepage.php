@@ -1,5 +1,10 @@
 <?php
 session_start();
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+header('Content-Type: text/html');
+
+
 
 //check if user has logged in
 if(!isset($_SESSION['user']))
@@ -7,9 +12,7 @@ if(!isset($_SESSION['user']))
     header("Location:index.html");
    }
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-header('Content-Type: text/html');
+
 ?>
 <!DOCTYPE html>
 <html lang="en-US">
@@ -19,7 +22,8 @@ header('Content-Type: text/html');
 <meta charset="UTF-8">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="style.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </head>
 <body onload="showexpenses()" >
@@ -35,10 +39,10 @@ header('Content-Type: text/html');
 <!--Main Container--> 
     <nav class="navbar navbar-default">
 <?php
-            $servername = "localhost";
-            $username = "brad";
-            $password = "brad";
-            $dbname = "tracker";
+            $servername = "oniddb.cws.oregonstate.edu";
+            $username = "parkerb2-db";
+            $password = "RznqNou9jGnYkUSh";
+            $dbname = "parkerb2-db";
     
             $uconnect = new mysqli($servername, $username, $password, $dbname);
             
@@ -99,7 +103,7 @@ header('Content-Type: text/html');
       
      <div class="row">
      <div> 
-         <div id="showRecentExp" class="col-sm-6">List of Expenses here</div>       
+         <div id="showRecentExp" class="col-sm-6"></div>       
      </div>
     
     
@@ -114,8 +118,10 @@ header('Content-Type: text/html');
         <div class="col-sm-12">
         <footer>
         Email: Brad Parker parkerb@@onid.oregonstate.edu  Copyright &#64 2015 BP Designs
-        <script type="text/javascript" src="pajax.js"></script>
-        <script src="http://api.mygeoposition.com/api/geopicker/api.js" type="text/javascript"></script>
+        <script type="text/javascript" src="pajax.js"></script>        
+        <script src ="http://api.mygeoposition.com/api/geopicker/api.js" type="text/javascript"></script>
+        
+       
         </footer>
         </div>
      </div>
@@ -148,7 +154,15 @@ $ga="";
 $ppg="";
     
 if(isset($_POST["push"]))
+{
+    if(!is_numeric($_POST["mileage"]) || !is_numeric($_POST["cost"]) )
+    {echo "<p style='color:red'>You need a number in Mileage or Cost field</p>";}
+    else
+    
+    
     {
+        echo $_POST["push"];
+       
         $tc=$_POST["typeofcost"];
         $dc=$_POST["description"];
         $mg=$_POST["mileage"];
@@ -162,18 +176,46 @@ if(isset($_POST["push"]))
             }
            
     
-    }
+    
 
-            $servername = "localhost";
-            $username = "brad";
-            $password = "brad";
-            $dbname = "tracker";
+            $servername = "oniddb.cws.oregonstate.edu";
+            $username = "parkerb2-db";
+            $password = "RznqNou9jGnYkUSh";
+            $dbname = "parkerb2-db";
     
             $conn = new mysqli($servername, $username, $password, $dbname);
             $stmt = $conn->prepare("INSERT INTO expenses (date,id,category,cost,description,mileage,gallons,ppg) VALUES (?,?,?,?,?,?,?,?)");
             $stmt->bind_param("sssdsiid",$da,$un,$tc,$co,$dc,$mg,$ga,$ppg);
             $stmt->execute();
             $conn->close();
+         
+        
+            
+            
+    }
+}
+if(isset($_POST["deleteRecord"]))
+{
+    
+            $servername = "oniddb.cws.oregonstate.edu";
+            $username = "parkerb2-db";
+            $password = "RznqNou9jGnYkUSh";
+            $dbname = "parkerb2-db";
+    
+            $conn9 = new mysqli($servername, $username, $password, $dbname);      
+                       
+            $stmt9 = $conn9->prepare("DELETE FROM expenses WHERE id=? AND number=?");
+            $stmt9->bind_param("si",$_POST["id"],$_POST["number"]);
+            $stmt9->execute();
+            //$sqln = "DELETE * FROM expenses WHERE id = ". $_POST['id'] . " AND number = " . $_POST['number']  ; 
+           
+            $conn9->close();
+    
+    
+ }
+            
+          
+            
 
 ?>
 

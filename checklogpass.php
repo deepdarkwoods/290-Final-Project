@@ -1,17 +1,15 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-header('Content-Type: text/html');
+
 
             $userid=$_GET["userid"];
             $pword=$_GET["pass"];
             
               
             
-            $servername = "localhost";
-            $username = "brad";
-            $password = "brad";
-            $dbname = "tracker";
+            $servername = "oniddb.cws.oregonstate.edu";
+            $username = "parkerb2-db";
+            $password = "RznqNou9jGnYkUSh";
+            $dbname = "parkerb2-db";
             
             $conn = new mysqli($servername, $username, $password, $dbname);        
                    
@@ -36,9 +34,7 @@ header('Content-Type: text/html');
                     //if username doesn't exit[no returned results]
                    if(!$row)
                         {
-                               echo "<p style='color:red' >Incorrect Username or Password</p>";
-                              
-                          
+                               echo "<p style='color:red' >Incorrect Username or Password</p>";                  
                         }        
                 }
                 
